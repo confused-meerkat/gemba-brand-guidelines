@@ -1865,25 +1865,6 @@ The full case study is in the first comment.
       </table></div>
     </section>
 
-    <section class="chapter" id="webnotes" aria-labelledby="c20">
-      <div class="ch-head">
-        <span class="ch-num">20 — Website build notes</span>
-        <h2 class="ch-title" id="c20">Six fixes to bring the site <span class="acc">in line with its own system.</span></h2>
-        <p class="lead">Found while extracting this book from the live site on 1 October 2026. For the web team.</p>
-      </div>
-      <div class="tw"><table>
-        <thead><tr><th>#</th><th>Issue</th><th>Impact</th><th>Fix</th></tr></thead>
-        <tbody>
-          <tr><td class="mono">01</td><td><b>Poppins isn't rendering.</b> The next/font classes sit on &lt;body&gt;, but --font-sans and --default-font-family are resolved on :root, where --font-poppins doesn't exist yet. Every font stack falls back to the system font.</td><td><span class="fail">HIGH</span> Visitors see Segoe UI (Windows) or SF Pro (Mac), and Geist Mono numbers don't show.</td><td>Move both font variable classes to &lt;html&gt;, or define --font-sans on body.</td></tr>
-          <tr><td class="mono">02</td><td><b>Poppins 600 isn't loaded.</b> The site loads 400, 500, 700 and 800, but headings and buttons are set at 600.</td><td><span class="lg-only">MEDIUM</span> Once 01 is fixed, headings render as synthetic or Bold.</td><td>Add weight 600 to the Poppins import; remove 800 if unused.</td></tr>
-          <tr><td class="mono">03</td><td><b>Logo file.</b> 480 × 319 PNG with semi-transparent colour, shown at 38–44 px high in the nav.</td><td><span class="lg-only">MEDIUM</span> The wordmark renders about 5 px tall and colours shift on non-white grounds.</td><td>Ship a solid-colour SVG; show the nav logo at 48 px or use the monogram with text.</td></tr>
-          <tr><td class="mono">04</td><td><b>Mixed heading case.</b> "One Operational Problem. Different Ways To Solve It.", "Regions We Serve", "Measurable Business Outcomes", "Show Us Where The Operation Is Getting Stuck."</td><td><span class="pass">LOW</span> Inconsistent voice next to sentence-case headings.</td><td>Convert to sentence case.</td></tr>
-          <tr><td class="mono">05</td><td><b>Currency format.</b> Case studies use "Rs 2,500+ crore" and "Rs 1.67 Crore"; blogs use "₹15 Cr".</td><td><span class="pass">LOW</span></td><td>Use ₹ everywhere (chapter 12).</td></tr>
-          <tr><td class="mono">06</td><td><b>Older blog covers</b> use generic stock photography.</td><td><span class="pass">LOW</span></td><td>Replace with Style 2 illustrations when posts are updated.</td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
     <footer class="end" aria-label="Brand book footer">
       <span class="chip">Questions</span>
       <h2 class="s07b" style="margin-top:20px;max-width:20ch">Show us where the brand is getting stuck.</h2>
